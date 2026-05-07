@@ -18,7 +18,7 @@ import EmptyProfileCard from "@/components/finance/EmptyProfileCard";
 import { useActiveProfile } from "@/hooks/use-active-profile";
 import { useEvaluation } from "@/hooks/use-evaluation";
 import { formatMoney, formatPercent } from "@/lib/money";
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
 import { Wallet, ShieldAlert, Sparkles, PieChart, Activity, Rocket } from "lucide-react";
 
 const container = {
@@ -31,7 +31,7 @@ const container = {
   },
 };
 
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };

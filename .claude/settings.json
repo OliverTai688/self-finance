@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -sS -o /dev/null -w \"/ → %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -sS -o /dev/null -w \"/inputs → %{http_code}\\\\n\" http://localhost:3000/inputs)",
+      "Bash(curl -sS -o /dev/null -w \"/report → %{http_code}\\\\n\" http://localhost:3000/report)",
+      "Bash(curl -sS -o /dev/null -w \"/settings → %{http_code}\\\\n\" http://localhost:3000/settings)",
+      "Bash(pnpm exec *)",
+      "Bash(curl -s -o /tmp/glossary-check.html -w \"HTTP %{http_code}\\\\n\" http://localhost:3000/glossary)",
+      "Bash(LC_ALL=en_US.UTF-8 /usr/bin/grep -o \"名詞與公式解釋\\\\|緊急備援月數\\\\|Herfindahl\\\\|Trinity\" /tmp/glossary-check.html)",
+      "Bash(curl -s -o /tmp/chat-check.html -w \"HTTP %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s -o /tmp/chat-glossary.html -w \"HTTP %{http_code}\\\\n\" http://localhost:3000/glossary)",
+      "Bash(LC_ALL=en_US.UTF-8 /usr/bin/grep -o \"Finance AI\\\\|Context-Aware\\\\|Dashboard · 三層總覽\\\\|名詞解釋\" /tmp/chat-check.html /tmp/chat-glossary.html)",
+      "Bash(curl -s -o /tmp/root.html -w \"HTTP %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(LC_ALL=en_US.UTF-8 /usr/bin/grep -c \"MessageCircle\\\\|fixed bottom-6 right-6\" /tmp/root.html)"
+    ]
+  }
+}
